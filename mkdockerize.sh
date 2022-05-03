@@ -1,9 +1,26 @@
-#!/bin/bash -x
+#!/bin/bash
 argcount=$@
-echo $argcount
-if [[ $1 == "build" ]];then
+#echo $argcount
+FILE="myproject.tar.gz"
+if [[ $1 == "produce" ]]; then
 	echo "Building project ....."
-	mkdocs build -d ./content
+	mkdocs build -f myproj/mkdocs.yml -d /app/content
 	cd content
-	tar -zcvf /app/myproject.tar.gz *
+	tar -zcvf /app/$FILE *
+	rm -rf /app/content
+elif [[ $1 == "serve" ]]; then	
+	echo "serving content"
+	if [[ -f "$FILE" ]]; then
+		echo "$FILE exists."
+		mkdir /app/content
+		tar -zxvf $FILE -C /app/content
+		mkdocs serve -f myproj/mkdocs.yml -a 0.0.0.0:8000
+		rm -rf /app/content
+	else
+		echo "Required project content not available. Kindly create content first using \"produce\" argument."
+	fi
+	
+else
+	echo "Invalid argument found ! Kindly try with produce / serve ."
+
 fi
