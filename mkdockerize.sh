@@ -1,6 +1,6 @@
 #!/bin/bash
 argcount=$@
-#echo $argcount
+#echo $argcount 
 FILE="myproject.tar.gz"
 if [[ $1 == "produce" ]]; then
 	echo "Building project ....."
@@ -18,9 +18,11 @@ elif [[ $1 == "serve" ]]; then
 		rm -rf /app/content
 	else
 		echo "Required project content not available. Kindly create content first using \"produce\" argument."
+		exit 1
 	fi
 	
 else
 	echo "Invalid argument found ! Kindly try with produce / serve ."
+	exit 1
 
 fi
