@@ -13,12 +13,12 @@ docker build -t <image name> -f Dockerfile .
 ## Usage
 ### For creating project content
 ```python
-docker run -it --rm -v `pwd`/myproj:/app --name <container name> <image name> build
+docker run -it --rm -v ${PWD}/myproj:/app --name <container name> <image name> produce
 ```
-Build is argument we are passing for generating content. `pwd` refer to current working directory. It mean you should be inside root folder of project. `myproj` folder contains mkdocs project which required to be mounted to containers work directory. 
+Build is argument we are passing for generating content. `${PWD}` refer to current working directory. It mean you should be inside root folder of project. `myproj` folder contains mkdocs project which required to be mounted to containers work directory. 
 
 ### For serving project content
 ```python
-docker run -it --rm -v `pwd`/myproj:/app --name <container name> <image name> server
+docker run -it --rm -v ${PWD}/myproj:/app --name <container name> <image name> server
 ```
-Build is argument we are passing for generating content. `pwd` refer to current working directory. It mean you should be inside root folder of project. `myproj` folder contains mkdocs project which required to be mounted to containers work directory. 
+Build is argument we are passing for generating content. `${PWD}` refer to current working directory. It mean you should be inside root folder of project. `myproj` folder contains mkdocs project which required to be mounted to containers work directory. 
