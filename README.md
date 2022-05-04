@@ -16,7 +16,7 @@ docker build -t <image name> -f Dockerfile .
 ```python
 docker run -it --rm -v ${PWD}:/app --name <container name> <image name> produce
 ```
-Build is argument we are passing for generating content. `${PWD}` refer to current working directory. It mean you should be inside root folder of project. `myproj` folder contains mkdocs project which required to be mounted to containers work directory. 
+Procude is argument we are passing for generating content. `${PWD}` refer to current working directory. It mean you should be inside root folder of project. `myproj` folder contains mkdocs project which required to be mounted to containers work directory. 
 
 ### For serving project content
 ```python
